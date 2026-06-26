@@ -1,37 +1,51 @@
 import Link from 'next/link';
-import { getFeaturedBooks } from '@/lib/books';
+import { getAllBooks } from '@/lib/books';
 import BookGrid from '@/components/BookGrid';
+import BookCarousel from '@/components/BookCarousel';
 
 export default function Hero() {
-  const featuredBooks = getFeaturedBooks();
+  const allBooks = getAllBooks();
 
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-stone-50 to-orange-50/30" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-orange-200/15 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
+      <section className="relative overflow-hidden h-screen">
+          {/* Hero GIF background */}
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/hero-banner.mp4" type="video/mp4" />
+            {/* Fallback to GIF if the user uploads a GIF instead */}
+            <img src="/hero-banner.gif" alt="Hero background" className="absolute inset-0 w-full h-full object-cover" />
+          </video>
+          {/* Dark overlay for readability */}
+          <div className="absolute inset-0 bg-black/40" />
+          {/* Optional decorative accents (kept subtle) */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-orange-200/15 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
 
-        <div className="relative max-w-6xl mx-auto px-6 py-24 md:py-36">
+        <div className="relative max-w-6xl mx-auto px-6 py-24 md:py-36 z-10">
           <div className="max-w-2xl">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100/80 border border-amber-200/60 text-amber-800 text-xs font-medium tracking-wide mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-600 animate-[gentle-pulse_2s_ease-in-out_infinite]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 border border-white/20 text-white text-xs font-medium tracking-wide mb-8 backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-[gentle-pulse_2s_ease-in-out_infinite]" />
               INDEPENDENT PUBLISHER · LOS ANGELES
             </div>
 
             {/* Heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-stone-900 leading-[1.1] tracking-tight mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6 drop-shadow-lg">
               Stories that{' '}
-              <span className="text-gradient">educate</span>,{' '}
-              <span className="text-gradient">inspire</span> &{' '}
-              <span className="text-gradient">entertain</span>
+              <span className="text-amber-400 drop-shadow-md">educate</span>,{' '}
+              <span className="text-amber-400 drop-shadow-md">inspire</span> &{' '}
+              <span className="text-amber-400 drop-shadow-md">entertain</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-stone-500 leading-relaxed mb-10 max-w-lg">
+            <p className="text-xl md:text-2xl text-stone-200 leading-relaxed mb-10 max-w-lg drop-shadow">
               Discover the Bookendbook catalog — coloring books, poetry, history, and more from an independent LA publisher.
             </p>
 
@@ -39,7 +53,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/books"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-amber-700 hover:bg-amber-800 text-white font-medium rounded-xl transition-all duration-200 shadow-lg shadow-amber-700/20 hover:shadow-xl hover:shadow-amber-700/25 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-amber-600 hover:bg-amber-500 text-white font-medium rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
                 Browse All Books
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,7 +62,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-stone-50 text-stone-700 font-medium rounded-xl transition-all duration-200 border border-stone-200 hover:border-stone-300 shadow-sm"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl transition-all duration-200 border border-white/30 hover:border-white/50 shadow-sm backdrop-blur-sm"
               >
                 Our Story
               </Link>
@@ -57,19 +71,17 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Featured Books Section */}
-      <section className="py-20 px-6 bg-white">
+      {/* Spotlight Carousel */}
+      <section className="py-16 px-6 bg-[#0a0a0a] border-t border-white/[0.06]">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-end justify-between mb-10">
+          <div className="flex items-end justify-between mb-8">
             <div>
-              <p className="text-amber-700 text-sm font-medium tracking-wide uppercase mb-2">Featured</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-stone-900">
-                Popular Titles
-              </h2>
+              <p className="text-amber-500 text-sm font-medium tracking-widest uppercase mb-2">The Catalog</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">Popular Titles</h2>
             </div>
             <Link
               href="/books"
-              className="hidden sm:inline-flex items-center gap-1.5 text-amber-700 hover:text-amber-800 font-medium text-sm transition-colors"
+              className="hidden sm:inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-medium text-sm transition-colors"
             >
               View all
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -77,35 +89,36 @@ export default function Hero() {
               </svg>
             </Link>
           </div>
+          <BookCarousel books={allBooks} />
+        </div>
+      </section>
 
-          <BookGrid books={featuredBooks} />
-
-          <div className="text-center mt-12 sm:hidden">
-            <Link
-              href="/books"
-              className="inline-flex items-center gap-2 text-amber-700 hover:text-amber-800 font-medium transition-colors"
-            >
-              View all books
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+      {/* All Books Grid */}
+      <section className="py-16 px-6 bg-[#0d0d0d] border-t border-white/[0.06]">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <p className="text-amber-500 text-sm font-medium tracking-widest uppercase mb-2">Browse</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">Full Collection</h2>
+            </div>
           </div>
+          <BookGrid books={allBooks} />
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-b from-white to-stone-50">
+      <section className="py-24 px-6 bg-[#111] border-t border-white/[0.06]">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
-            Want to get in touch?
+          <p className="text-amber-500 text-sm font-medium tracking-widest uppercase mb-4">Get In Touch</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Want to say hello?
           </h2>
-          <p className="text-lg text-stone-500 mb-8 max-w-md mx-auto">
-            Whether you have questions, feedback, or just want to say hello — we&apos;d love to hear from you.
+          <p className="text-lg text-stone-400 mb-10 max-w-md mx-auto leading-relaxed">
+            Whether you have questions, feedback, or just want to connect — we&apos;d love to hear from you.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-7 py-3.5 bg-stone-900 hover:bg-stone-800 text-white font-medium rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-amber-500 hover:bg-amber-400 text-black font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-amber-900/30 hover:shadow-amber-600/30 hover:-translate-y-0.5"
           >
             Send a Message
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

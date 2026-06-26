@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-stone-900 text-stone-400 mt-auto">
+    <footer className="bg-stone-900 text-stone-400 mt-auto border-t border-stone-800">
       {/* Main footer */}
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -19,7 +19,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-stone-500 leading-relaxed max-w-xs">
-              Independent publisher based in Los Angeles. Creating books that educate, inspire, and entertain.
+              Independent publisher based in Los Angeles. Creating books and digital products that educate, inspire, and entertain.
             </p>
           </div>
 
@@ -35,6 +35,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/apps" className="text-sm hover:text-amber-400 transition-colors">
+                  Our Apps
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="text-sm hover:text-amber-400 transition-colors">
                   About Us
                 </Link>
@@ -44,39 +49,44 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          {/* Digital Apps & Shops */}
+          <div>
+            <h3 className="text-stone-200 font-semibold text-sm uppercase tracking-wider mb-4">
+              Products & Shops
+            </h3>
+            <ul className="space-y-3">
               <li>
                 <a
                   href="https://gonzotyper.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm hover:text-amber-400 transition-colors inline-flex items-center gap-1"
+                  className="text-sm hover:text-amber-400 transition-colors inline-flex items-center gap-1.5"
                 >
-                  GonzoTyper
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  GonzoTyper (Live)
+                  <svg className="w-3.5 h-3.5 text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>
               </li>
-            </ul>
-          </div>
-
-          {/* Find us */}
-          <div>
-            <h3 className="text-stone-200 font-semibold text-sm uppercase tracking-wider mb-4">
-              Find Our Books
-            </h3>
-            <ul className="space-y-3">
               <li>
+                <span className="text-sm text-stone-500 inline-flex items-center gap-1.5">
+                  Izaduko (Coming Soon)
+                </span>
+              </li>
+              <li className="pt-2 border-t border-stone-800">
                 <a
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm hover:text-amber-400 transition-colors inline-flex items-center gap-2"
                 >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M1 4.27V19.73L6.5 16.5 12 19.5l5.5-3L23 19.73V4.27L17.5 7.5 12 4.5 6.5 7.5 1 4.27z" />
                   </svg>
-                  Amazon
+                  Amazon Book Store
                 </a>
               </li>
             </ul>
@@ -85,7 +95,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-stone-800">
+      <div className="border-t border-stone-850">
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-stone-600">
             © {new Date().getFullYear()} Bookendbook. All rights reserved.

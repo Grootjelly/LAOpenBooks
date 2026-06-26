@@ -1,13 +1,11 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Colors - Warm earth-tone palette */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* Custom animation durations */
   --animate-fade-in: fade-in 0.5s ease-out forwards;
   --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
   --animate-slide-in: slide-in 0.4s ease-out forwards;
@@ -15,8 +13,8 @@
 }
 
 :root {
-  --background: #faf8f5;
-  --foreground: #1c1917;
+  --background: #0a0a0a;
+  --foreground: #f5f0eb;
 }
 
 /* Animations */
@@ -62,6 +60,20 @@
   50% { opacity: 0.7; }
 }
 
+@keyframes progress-fill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Hide scrollbar for thumbnail strip */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 /* Base styles */
 body {
   background: var(--background);
@@ -79,7 +91,7 @@ html {
 /* Selection color */
 ::selection {
   background-color: #d97706;
-  color: white;
+  color: #0a0a0a;
 }
 
 /* Focus outline */
@@ -94,59 +106,65 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5f0eb;
+  background: #111111;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c4b5a3;
+  background: #333333;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a89888;
+  background: #d97706;
 }
 
 /* Gradient text utility */
 .text-gradient {
-  background: linear-gradient(135deg, #92400e 0%, #b45309 50%, #d97706 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glass card effect */
+/* Glass card effect — dark */
 .glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Shimmer loading effect */
+/* Dark section utility */
+.dark-section {
+  background: #111111;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Shimmer loading effect — dark */
 .shimmer {
   background: linear-gradient(
     90deg,
-    #f5f0eb 25%,
-    #ede8e1 37%,
-    #f5f0eb 63%
+    #1a1a1a 25%,
+    #242424 37%,
+    #1a1a1a 63%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
 }
 
-/* Book cover shadow */
+/* Book cover shadow — amber glow on dark */
 .book-shadow {
   box-shadow:
-    0 4px 6px -1px rgba(120, 90, 60, 0.1),
-    0 10px 20px -5px rgba(120, 90, 60, 0.15),
-    0 20px 40px -10px rgba(120, 90, 60, 0.1);
+    0 4px 6px -1px rgba(0, 0, 0, 0.5),
+    0 10px 20px -5px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(217, 119, 6, 0.08);
 }
 
 .book-shadow-hover {
   box-shadow:
-    0 8px 12px -2px rgba(120, 90, 60, 0.15),
-    0 16px 32px -8px rgba(120, 90, 60, 0.2),
-    0 24px 48px -12px rgba(120, 90, 60, 0.15);
+    0 8px 12px -2px rgba(0, 0, 0, 0.6),
+    0 16px 32px -8px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(217, 119, 6, 0.15);
 }
 
 /* Staggered animation delays */
@@ -158,3 +176,102 @@ html {
 .stagger-6 { animation-delay: 0.6s; }
 .stagger-7 { animation-delay: 0.7s; }
 .stagger-8 { animation-delay: 0.8s; }
+
+/* ── Book Card Animations ─────────────────────────────── */
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes amber-glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(217,119,6,0.15), 0 0 60px rgba(217,119,6,0.05); }
+  50%       { box-shadow: 0 0 30px rgba(217,119,6,0.30), 0 0 80px rgba(217,119,6,0.12); }
+}
+
+@keyframes shine-sweep {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(250%) skewX(-15deg); }
+}
+
+/* Scroll-reveal entry animation */
+.book-reveal {
+  opacity: 0;
+  animation: reveal-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* The card wrapper — perspective for 3D tilt */
+.book-card-wrap {
+  perspective: 900px;
+}
+
+/* Book cover 3D container */
+.book-cover-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+.book-card-wrap:hover .book-cover-3d {
+  transform: rotateY(-8deg) rotateX(4deg) scale(1.04);
+  box-shadow:
+    8px 20px 40px rgba(0,0,0,0.7),
+    -4px 0px 20px rgba(217,119,6,0.12),
+    0 0 0 1px rgba(217,119,6,0.15);
+}
+
+/* Shine sweep on hover */
+.book-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255,255,255,0.08) 50%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.book-card-wrap:hover .book-shine {
+  opacity: 1;
+  animation: shine-sweep 0.7s ease forwards;
+}
+
+/* Ambient amber glow ring under card on hover */
+.book-glow-ring::after {
+  content: '';
+  position: absolute;
+  inset: 10% 5%;
+  bottom: -15%;
+  height: 30%;
+  background: radial-gradient(ellipse, rgba(217,119,6,0.35) 0%, transparent 70%);
+  filter: blur(18px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.book-card-wrap:hover .book-glow-ring::after {
+  opacity: 1;
+}
+
+/* Info panel slide-up on hover */
+.book-info-panel {
+  transform: translateY(4px);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.book-card-wrap:hover .book-info-panel {
+  transform: translateY(0px);
+}

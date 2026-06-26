@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getAllBooks, getBookBySlug } from '@/lib/books';
 
 export async function generateStaticParams() {
@@ -47,15 +48,17 @@ export default async function BookDetailPage({
 
           <div className="grid md:grid-cols-[320px_1fr] gap-12">
             {/* Cover */}
-            <div className="relative aspect-[5/7] rounded-2xl overflow-hidden shadow-xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-800 via-stone-700 to-stone-900 flex items-end p-8">
-                <div>
-                  <h2 className="text-white font-bold text-2xl leading-tight">{book.title}</h2>
-                  {book.subtitle && (
-                    <p className="text-amber-200/80 text-sm mt-2">{book.subtitle}</p>
-                  )}
-                </div>
-              </div>
+            <div className="relative aspect-[5/7] rounded-2xl overflow-hidden shadow-xl bg-stone-100">
+              <Image
+                src={book.coverImage}
+                alt={`Book cover of ${book.title}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 320px"
+                priority
+              />
+              {/* Subtle edge shadow/spine effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/15 via-transparent to-transparent pointer-events-none" />
             </div>
 
             {/* Details */}
