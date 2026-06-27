@@ -38,10 +38,8 @@ export default function Hero() {
 
             {/* Heading */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6 drop-shadow-lg">
-              Stories that{' '}
-              <span className="text-amber-400 drop-shadow-md">educate</span>,{' '}
-              <span className="text-amber-400 drop-shadow-md">inspire</span> &{' '}
-              <span className="text-amber-400 drop-shadow-md">entertain</span>
+              An open book,<br />
+              <span className="text-amber-400 drop-shadow-md">is an open mind.</span>
             </h1>
 
             {/* Subtitle */}
