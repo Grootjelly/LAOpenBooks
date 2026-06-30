@@ -52,11 +52,11 @@ const DEFAULT_IMAGES = [
   "/images/books/history-search.png"
 ];
 
-const DEFAULT_TITLE = ["Bookendbook"];
+const DEFAULT_TITLE = ["LAOpenBooks"];
 const DEFAULT_SUBTITLE = ["INDEPENDENT PUBLISHER", "LOS ANGELES"];
 const DEFAULT_PARAGRAPHS = [
   [
-    "Bookendbook is an independent publisher",
+    "LAOpenBooks is an independent publisher",
     "specializing in coloring books, non-fiction,",
     "poetry, and digital applications.",
   ],
@@ -76,7 +76,7 @@ export function Footer({
   subtitle = DEFAULT_SUBTITLE,
   paragraphs = DEFAULT_PARAGRAPHS,
   navEmail = "oppyinmars@gmail.com",
-  footerText = "© 2026 Bookendbook. All rights reserved. Made with ♥ in Los Angeles. We navigate in no-nonsense environments pushing the boundaries of publishing and web design.",
+  footerText = "© 2026 LAOpenBooks. All rights reserved. Made with ♥ in Los Angeles. We navigate in no-nonsense environments pushing the boundaries of publishing and web design.",
 }: FooterProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const marqueeStripRef = useRef<HTMLDivElement>(null);
@@ -299,7 +299,7 @@ export function Footer({
         >
           {title.map((line, idx) => (
             <div key={idx} className="wake-target inline-block relative">
-              Bookend<span className="text-amber-500">book</span>
+              LAOpen<span className="text-amber-500">Books</span>
               <span className="absolute right-[-0.15em] top-[0.1em] w-[0.15em] h-[0.15em] bg-amber-500 rounded-full"></span>
             </div>
           ))}
