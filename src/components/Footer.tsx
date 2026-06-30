@@ -252,21 +252,6 @@ export function Footer({
       )}
       style={{ fontFamily: "var(--font-instrument-sans), sans-serif" }}
     >
-      {/* Top Nav - Linked navigation */}
-      <div className="absolute top-0 left-0 w-full p-6 flex flex-col items-center justify-center z-50 text-[10px] md:text-xs font-semibold tracking-wider opacity-90 mix-blend-difference pointer-events-auto gap-2">
-        <a href={`mailto:${navEmail}`} className="hover:text-amber-500 transition-colors uppercase tracking-widest">
-          {navEmail}
-        </a>
-        <div className="flex gap-6 uppercase text-stone-400">
-          <Link href="/books" className="hover:text-amber-500 transition-colors">Books</Link>
-          <Link href="/apps" className="hover:text-amber-500 transition-colors">Apps</Link>
-          <Link href="/about" className="hover:text-amber-500 transition-colors">About</Link>
-          <Link href="/contact" className="hover:text-amber-500 transition-colors">Contact</Link>
-        </div>
-        <div className="mt-4 md:mt-0 md:absolute md:right-12 md:top-6 flex items-center justify-center pointer-events-auto">
-          <InstagramTooltip />
-        </div>
-      </div>
 
       {/* Marquee Strip */}
       <div 
@@ -337,9 +322,26 @@ export function Footer({
         </div>
       </div>
 
-      {/* Footer text */}
-      <div className="absolute bottom-0 left-0 w-full p-8 z-40 flex justify-center pointer-events-none mix-blend-difference">
-        <p className="text-[8px] md:text-[10px] text-white/50 max-w-2xl text-center leading-[1.6]">
+      {/* Bottom Section */}
+      <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 z-50 flex flex-col gap-6 md:gap-8 mix-blend-difference pointer-events-none">
+        {/* Nav, Email, Social */}
+        <div className="flex flex-col md:flex-row items-center justify-between w-full pointer-events-auto text-[10px] md:text-xs font-semibold tracking-wider gap-6 md:gap-4">
+          <a href={`mailto:${navEmail}`} className="hover:text-amber-500 transition-colors uppercase tracking-widest md:flex-1 text-center md:text-left">
+            {navEmail}
+          </a>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 uppercase text-stone-400 md:flex-1">
+            <Link href="/books" className="hover:text-amber-500 transition-colors">Books</Link>
+            <Link href="/apps" className="hover:text-amber-500 transition-colors">Apps</Link>
+            <Link href="/about" className="hover:text-amber-500 transition-colors">About</Link>
+            <Link href="/contact" className="hover:text-amber-500 transition-colors">Contact</Link>
+          </div>
+          <div className="flex items-center justify-center md:justify-end md:flex-1 pb-4 md:pb-0">
+            <InstagramTooltip />
+          </div>
+        </div>
+
+        {/* Footer text */}
+        <p className="text-[8px] md:text-[10px] text-white/50 text-center leading-[1.6] w-full max-w-2xl mx-auto">
           {footerText}
         </p>
       </div>
