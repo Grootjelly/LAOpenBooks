@@ -6,19 +6,38 @@ export interface PopButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEle
   href?: string;
   target?: string;
   rel?: string;
+  variant?: 'primary' | 'secondary';
 }
 
-export function PopButton({ className, children = "Learn More", href, target, rel, ...props }: PopButtonProps) {
+export function PopButton({ className, children = "Learn More", href, target, rel, variant = 'primary', ...props }: PopButtonProps) {
+  const isPrimary = variant === 'primary';
+
+  const themeClasses = isPrimary
+    ? cn(
+        "text-stone-950 dark:text-stone-950",
+        "bg-amber-500 border-amber-700",
+        "shadow-[0_12px_0_-2px_#fcd34d,0_12px_0_0_#b45309,0_22px_0_0_#fef3c7]",
+        "dark:shadow-[0_12px_0_-2px_#fcd34d,0_12px_0_0_#b45309,0_22px_15px_-5px_rgba(0,0,0,0.5)]",
+        "hover:bg-amber-400 hover:translate-y-1 hover:shadow-[0_8px_0_-2px_#fcd34d,0_8px_0_0_#b45309,0_16px_0_0_#fef3c7]",
+        "dark:hover:shadow-[0_8px_0_-2px_#fcd34d,0_8px_0_0_#b45309,0_16px_10px_-5px_rgba(0,0,0,0.5)]",
+        "active:bg-amber-400 active:translate-y-3 active:shadow-[0_0px_0_-2px_#fcd34d,0_0px_0_0_#b45309,0_0px_0_0_#fef3c7]",
+        "dark:active:shadow-[0_0px_0_-2px_#fcd34d,0_0px_0_0_#b45309,0_0px_0_0_rgba(0,0,0,0)]"
+      )
+    : cn(
+        "text-stone-200 dark:text-stone-250",
+        "bg-stone-900 border-stone-700",
+        "shadow-[0_12px_0_-2px_#57534e,0_12px_0_0_#44403c,0_22px_0_0_#0c0a09]",
+        "dark:shadow-[0_12px_0_-2px_#57534e,0_12px_0_0_#44403c,0_22px_15px_-5px_rgba(0,0,0,0.6)]",
+        "hover:bg-stone-800 hover:translate-y-1 hover:shadow-[0_8px_0_-2px_#57534e,0_8px_0_0_#44403c,0_16px_0_0_#0c0a09]",
+        "dark:hover:shadow-[0_8px_0_-2px_#57534e,0_8px_0_0_#44403c,0_16px_10px_-5px_rgba(0,0,0,0.6)]",
+        "active:bg-stone-800 active:translate-y-3 active:shadow-[0_0px_0_-2px_#57534e,0_0px_0_0_#44403c,0_0px_0_0_#0c0a09]",
+        "dark:active:shadow-[0_0px_0_-2px_#57534e,0_0px_0_0_#44403c,0_0px_0_0_rgba(0,0,0,0)]"
+      );
+
   const commonClasses = cn(
-    "group relative inline-flex items-center justify-center font-semibold uppercase text-[#382b22] dark:text-[#382b22]",
-    "px-8 py-4 rounded-xl bg-[#fff0f0] border-2 border-[#b18597]",
-    "transition-all duration-150 ease-[cubic-bezier(0,0,0.58,1)]",
-    "shadow-[0_12px_0_-2px_#f9c4d2,0_12px_0_0_#b18597,0_22px_0_0_#ffe3e2]",
-    "dark:shadow-[0_12px_0_-2px_#f9c4d2,0_12px_0_0_#b18597,0_22px_15px_-5px_rgba(0,0,0,0.3)]",
-    "hover:bg-[#ffe9e9] hover:translate-y-1 hover:shadow-[0_8px_0_-2px_#f9c4d2,0_8px_0_0_#b18597,0_16px_0_0_#ffe3e2]",
-    "dark:hover:shadow-[0_8px_0_-2px_#f9c4d2,0_8px_0_0_#b18597,0_16px_10px_-5px_rgba(0,0,0,0.3)]",
-    "active:bg-[#ffe9e9] active:translate-y-3 active:shadow-[0_0px_0_-2px_#f9c4d2,0_0px_0_0_#b18597,0_0px_0_0_#ffe3e2]",
-    "dark:active:shadow-[0_0px_0_-2px_#f9c4d2,0_0px_0_0_#b18597,0_0px_0_0_rgba(0,0,0,0)]",
+    "group relative inline-flex items-center justify-center font-semibold uppercase rounded-xl border-2",
+    "px-8 py-4 transition-all duration-150 ease-[cubic-bezier(0,0,0.58,1)]",
+    themeClasses,
     className
   );
 

@@ -61,7 +61,8 @@ export default function Hero() {
               </PopButton>
               <PopButton
                 href="/about"
-                className="inline-flex items-center gap-2 bg-[#f6f5f4] border-[#b0acab] shadow-[0_12px_0_-2px_#d9d6d4,0_12px_0_0_#b0acab,0_22px_0_0_#f0edea] hover:bg-[#eae7e5] hover:shadow-[0_8px_0_-2px_#d9d6d4,0_8px_0_0_#b0acab,0_16px_0_0_#f0edea] active:bg-[#eae7e5] active:shadow-[0_0px_0_-2px_#d9d6d4,0_0px_0_0_#b0acab,0_0px_0_0_#f0edea] dark:shadow-[0_12px_0_-2px_#d9d6d4,0_12px_0_0_#b0acab,0_22px_15px_-5px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_8px_0_-2px_#d9d6d4,0_8px_0_0_#b0acab,0_16px_10px_-5px_rgba(0,0,0,0.3)] dark:active:shadow-[0_0px_0_-2px_#d9d6d4,0_0px_0_0_#b0acab,0_0px_0_0_rgba(0,0,0,0)]"
+                variant="secondary"
+                className="inline-flex items-center gap-2"
               >
                 Our Story
               </PopButton>
