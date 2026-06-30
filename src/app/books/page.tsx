@@ -30,7 +30,7 @@ export default async function BooksPage({
   return (
     <main className="flex-1">
       {/* Hero */}
-      <section className="bg-gradient-to-b from-[#0f0f0f] to-[#0a0a0a] py-20 px-6 border-b border-white/[0.06]">
+      <section className="bg-gradient-to-b from-[#0f0f0f]/80 to-[#0a0a0a]/80 backdrop-blur-sm py-20 px-6 border-b border-white/[0.06]">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Our <span className="text-amber-500">Books</span>

@@ -8,7 +8,7 @@ export default function Home() {
       <Hero />
       
       {/* Dynamic Ribbon Divider */}
-      <div className="relative w-full h-[60px] bg-[#0a0a0a] overflow-visible">
+      <div className="relative w-full h-[60px] bg-transparent overflow-visible">
         {/* Horizontal border line */}
         <div className="absolute inset-x-0 top-[30px] h-px bg-white/[0.06] z-10" />
         

@@ -33,7 +33,7 @@ export default async function BookDetailPage({
 
   return (
     <main className="flex-1">
-      <section className="bg-gradient-to-b from-[#0f0f0f] to-[#0a0a0a]">
+      <section className="bg-gradient-to-b from-[#0f0f0f]/80 to-[#0a0a0a]/80 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6 py-16">
           {/* Breadcrumb */}
           <nav className="mb-8">

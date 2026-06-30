@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 
 export default function AppsPage() {
   return (
-    <main className="flex-1 bg-[#0a0a0a]">
+    <main className="flex-1 bg-transparent">
       {/* Header */}
-      <section className="bg-gradient-to-b from-[#0f0f0f] to-[#0a0a0a] py-20 px-6 border-b border-white/[0.06]">
+      <section className="bg-gradient-to-b from-[#0f0f0f]/80 to-[#0a0a0a]/80 backdrop-blur-sm py-20 px-6 border-b border-white/[0.06]">
         <div className="max-w-4xl mx-auto text-center md:text-left">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950/30 border border-amber-900/30 text-amber-400 text-xs font-semibold tracking-wide mb-6">
             DIGITAL LAB

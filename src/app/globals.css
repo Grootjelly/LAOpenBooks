@@ -301,34 +301,34 @@ html {
     /* Diagonal slices */
     radial-gradient(
       circle at 100% 50%,
-      #ff00cc 0% 1.5%,
-      #00ffcc 2.5% 3.5%,
-      transparent 4.5%
+      #ff00cc 0% 2%,
+      #00ffcc 3% 5%,
+      transparent 6%
     ),
     /* Offset dots */
     radial-gradient(
       circle at 0% 50%,
-      #ff00cc 0% 1.5%,
-      #00ffcc 2.5% 3.5%,
-      transparent 4.5%
+      #ff00cc 0% 2%,
+      #00ffcc 3% 5%,
+      transparent 6%
     ),
     /* Wave-like pattern */
-    radial-gradient(ellipse at 50% 0%, #3300ff 0% 2%, transparent 3%) 10px 10px,
+    radial-gradient(ellipse at 50% 0%, #3300ff 0% 3%, transparent 4%) 10px 10px,
     /* Scattered elements */
     radial-gradient(
       circle at 50% 50%,
-      #00ffcc 0% 0.8%,
-      #ff00cc 1.5% 2.2%,
-      #3300ff 3% 4%,
-      transparent 5%
+      #00ffcc 0% 1%,
+      #ff00cc 2% 3%,
+      #3300ff 4% 5%,
+      transparent 6%
     ) 20px 20px,
     /* Background texture */
     repeating-linear-gradient(
       45deg,
-      #0a0a0a,
-      #0a0a0a 10px,
-      #121212 10px,
-      #121212 20px
+      #1a1a1a,
+      #1a1a1a 10px,
+      #242424 10px,
+      #242424 20px
     );
   background-size:
     50px 50px,
@@ -336,5 +336,5 @@ html {
     40px 40px,
     60px 60px,
     100% 100%;
-  animation: shift 18s linear infinite;
+  animation: shift 15s linear infinite;
 }
