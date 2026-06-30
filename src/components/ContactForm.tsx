@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import PopButton from './PopButton';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -55,13 +56,13 @@ export default function ContactForm() {
           placeholder="Tell us what's on your mind..."
         />
       </div>
-      <button
+      <PopButton
         type="submit"
         disabled={status === 'sending'}
-        className="w-full sm:w-auto px-8 py-3 bg-amber-700 hover:bg-amber-800 text-white font-medium rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+        className="w-full sm:w-auto"
       >
         {status === 'sending' ? 'Sending...' : status === 'sent' ? '✓ Sent!' : 'Send Message'}
-      </button>
+      </PopButton>
       {status === 'sent' && (
         <p className="text-emerald-600 text-sm animate-fade-in">Thank you! We'll get back to you soon.</p>
       )}

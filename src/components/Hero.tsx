@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getAllBooks } from '@/lib/books';
 import BookGrid from '@/components/BookGrid';
 import BookCarousel from '@/components/BookCarousel';
+import PopButton from '@/components/PopButton';
 
 export default function Hero() {
   const allBooks = getAllBooks();
@@ -48,22 +49,22 @@ export default function Hero() {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-4">
-              <Link
+            <div className="flex flex-wrap gap-4 mb-4">
+              <PopButton
                 href="/books"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-amber-600 hover:bg-amber-500 text-white font-medium rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2"
               >
                 Browse All Books
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </Link>
-              <Link
+              </PopButton>
+              <PopButton
                 href="/about"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl transition-all duration-200 border border-white/30 hover:border-white/50 shadow-sm backdrop-blur-sm"
+                className="inline-flex items-center gap-2 bg-[#f6f5f4] border-[#b0acab] shadow-[0_12px_0_-2px_#d9d6d4,0_12px_0_0_#b0acab,0_22px_0_0_#f0edea] hover:bg-[#eae7e5] hover:shadow-[0_8px_0_-2px_#d9d6d4,0_8px_0_0_#b0acab,0_16px_0_0_#f0edea] active:bg-[#eae7e5] active:shadow-[0_0px_0_-2px_#d9d6d4,0_0px_0_0_#b0acab,0_0px_0_0_#f0edea] dark:shadow-[0_12px_0_-2px_#d9d6d4,0_12px_0_0_#b0acab,0_22px_15px_-5px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_8px_0_-2px_#d9d6d4,0_8px_0_0_#b0acab,0_16px_10px_-5px_rgba(0,0,0,0.3)] dark:active:shadow-[0_0px_0_-2px_#d9d6d4,0_0px_0_0_#b0acab,0_0px_0_0_rgba(0,0,0,0)]"
               >
                 Our Story
-              </Link>
+              </PopButton>
             </div>
           </div>
         </div>
@@ -114,15 +115,15 @@ export default function Hero() {
           <p className="text-lg text-stone-400 mb-10 max-w-md mx-auto leading-relaxed">
             Whether you have questions, feedback, or just want to connect — we&apos;d love to hear from you.
           </p>
-          <Link
+          <PopButton
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-amber-500 hover:bg-amber-400 text-black font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-amber-900/30 hover:shadow-amber-600/30 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2"
           >
             Send a Message
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-          </Link>
+          </PopButton>
         </div>
       </section>
     </>
