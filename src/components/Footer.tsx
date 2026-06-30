@@ -267,7 +267,7 @@ export function Footer({
       {/* Marquee Strip */}
       <div 
         ref={marqueeStripRef} 
-        className="spotlight-marquee absolute left-0 w-full z-20 h-[160px] md:h-[200px] pointer-events-none"
+        className="spotlight-marquee absolute left-0 w-full z-20 h-[190px] md:h-[240px] pointer-events-none"
         style={{ top: 0 }} 
       >
         <div 
@@ -275,7 +275,7 @@ export function Footer({
           className="spotlight-marquee-track flex gap-4 h-full items-center absolute top-0 left-0"
         >
           {clonedImages.map((img, idx) => (
-            <div key={idx} className="w-[140px] h-[140px] md:w-[180px] md:h-[180px] shrink-0 rounded-[20px] overflow-hidden shadow-2xl bg-neutral-900 border border-white/[0.06]">
+            <div key={idx} className="w-[140px] h-[170px] md:w-[180px] md:h-[220px] shrink-0 rounded-[20px] overflow-hidden shadow-2xl bg-neutral-900 border border-white/[0.06]">
               <img
                 src={img}
                 alt="Book cover marquee item"
