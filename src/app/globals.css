@@ -275,3 +275,66 @@ html {
 .book-card-wrap:hover .book-info-panel {
   transform: translateY(0px);
 }
+
+/* Moving neon grid background */
+@keyframes shift {
+  0% {
+    background-position:
+      0 0,
+      0 0,
+      10px 10px,
+      20px 20px,
+      0 0;
+  }
+  100% {
+    background-position:
+      50px 50px,
+      -50px -50px,
+      60px 60px,
+      80px 80px,
+      0 0;
+  }
+}
+
+.animated-background {
+  background: 
+    /* Diagonal slices */
+    radial-gradient(
+      circle at 100% 50%,
+      #ff00cc 0% 1.5%,
+      #00ffcc 2.5% 3.5%,
+      transparent 4.5%
+    ),
+    /* Offset dots */
+    radial-gradient(
+      circle at 0% 50%,
+      #ff00cc 0% 1.5%,
+      #00ffcc 2.5% 3.5%,
+      transparent 4.5%
+    ),
+    /* Wave-like pattern */
+    radial-gradient(ellipse at 50% 0%, #3300ff 0% 2%, transparent 3%) 10px 10px,
+    /* Scattered elements */
+    radial-gradient(
+      circle at 50% 50%,
+      #00ffcc 0% 0.8%,
+      #ff00cc 1.5% 2.2%,
+      #3300ff 3% 4%,
+      transparent 5%
+    ) 20px 20px,
+    /* Background texture */
+    repeating-linear-gradient(
+      45deg,
+      #0a0a0a,
+      #0a0a0a 10px,
+      #121212 10px,
+      #121212 20px
+    );
+  background-size:
+    50px 50px,
+    50px 50px,
+    40px 40px,
+    60px 60px,
+    100% 100%;
+  animation: shift 18s linear infinite;
+}

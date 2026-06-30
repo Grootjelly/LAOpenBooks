@@ -31,7 +31,7 @@ const apps: AppItem[] = [
 
 export default function AppsShowcase() {
   return (
-    <section className="relative py-24 bg-[#0a0a0a] overflow-hidden">
+    <section className="relative py-24 bg-[#0a0a0a]/90 backdrop-blur-sm overflow-hidden">
       {/* Background blobs */}
       <div className="absolute top-1/4 right-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
