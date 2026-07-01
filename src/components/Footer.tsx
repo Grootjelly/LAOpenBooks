@@ -5,7 +5,6 @@ import Link from "next/link";
 import gsap from "gsap";
 import { cn } from "@/lib/utils";
 import { Instrument_Sans, Instrument_Serif } from 'next/font/google';
-import InstagramTooltip from "./InstagramTooltip";
 
 const instrumentSans = Instrument_Sans({
   subsets: ['latin'],
@@ -334,9 +333,6 @@ export function Footer({
             <Link href="/apps" className="hover:text-amber-500 transition-colors">Apps</Link>
             <Link href="/about" className="hover:text-amber-500 transition-colors">About</Link>
             <Link href="/contact" className="hover:text-amber-500 transition-colors">Contact</Link>
-          </div>
-          <div className="flex items-center justify-center md:justify-end md:flex-1 pb-4 md:pb-0">
-            <InstagramTooltip />
           </div>
         </div>
 
