@@ -6,6 +6,11 @@
     "author": "Bookendbook",
     "description": "Dive into a world of anime-inspired illustrations waiting to be brought to life with color. Featuring detailed character designs, dynamic poses, and intricate backgrounds, this coloring book is perfect for anime fans and coloring enthusiasts of all ages.",
     "coverImage": "/images/books/coloring-anime.png",
+    "gallery": [
+      "https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1589998059171-989d887dda6e?q=80&w=1000&auto=format&fit=crop"
+    ],
     "genres": ["Coloring Book", "Anime", "Art"],
     "formats": [{"type": "Paperback", "amazonUrl": "#"}],
     "editions": 1,
@@ -21,6 +26,11 @@
     "author": "Bookendbook",
     "description": "Unleash your imagination with a stunning collection of mythical beasts and fantasy creatures. From majestic dragons to enchanted sea creatures, each page offers a new world of wonder to explore through color.",
     "coverImage": "/images/books/fantasy-creatures.png",
+    "gallery": [
+      "https://images.unsplash.com/photo-1614113489855-66422ad300a4?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1000&auto=format&fit=crop"
+    ],
     "genres": ["Coloring Book", "Fantasy", "Art"],
     "formats": [{"type": "Paperback", "amazonUrl": "#"}],
     "editions": 1,
@@ -36,6 +46,11 @@
     "author": "Bookendbook",
     "description": "A haunting collection of dark poetry, spine-chilling short stories, and folklore from around the world. Whispers in the Shadows explores the thin line between the known and the unknown, inviting readers into a world of mystery, dread, and dark beauty.",
     "coverImage": "/images/books/whispers-in-the-shadows.png",
+    "gallery": [
+      "https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1000&auto=format&fit=crop"
+    ],
     "genres": ["Poetry", "Horror", "Folklore", "Short Stories"],
     "formats": [{"type": "Paperback", "amazonUrl": "#"}, {"type": "Kindle", "amazonUrl": "#"}],
     "editions": 2,

@@ -143,6 +143,49 @@ export default async function BookDetailPage({
           </div>
         </div>
       </section>
+
+      {/* Bento Image Gallery */}
+      {book.gallery && book.gallery.length >= 3 && (
+        <section className="bg-[#0a0a0a] py-16 px-6 border-t border-white/[0.06]">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-2xl font-bold text-white mb-8">Inside the Book</h2>
+            <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-4 md:gap-6">
+              {/* Main large image */}
+              <div className="relative aspect-square md:aspect-auto md:h-[600px] rounded-xl overflow-hidden bg-stone-900 border border-white/[0.06] shadow-xl">
+                <Image
+                  src={book.gallery[0]}
+                  alt={`${book.title} interior preview 1`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 60vw"
+                />
+              </div>
+              
+              {/* Stacked smaller images */}
+              <div className="grid grid-rows-2 gap-4 md:gap-6 md:h-[600px]">
+                <div className="relative aspect-video md:aspect-auto rounded-xl overflow-hidden bg-stone-900 border border-white/[0.06] shadow-xl">
+                  <Image
+                    src={book.gallery[1]}
+                    alt={`${book.title} interior preview 2`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                  />
+                </div>
+                <div className="relative aspect-video md:aspect-auto rounded-xl overflow-hidden bg-stone-900 border border-white/[0.06] shadow-xl">
+                  <Image
+                    src={book.gallery[2]}
+                    alt={`${book.title} interior preview 3`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </main>
   );
 }

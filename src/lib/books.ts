@@ -12,6 +12,7 @@ export interface Book {
   author: string;
   description: string;
   coverImage: string;
+  gallery?: string[];
   genres: string[];
   formats: BookFormat[];
   editions: number;
