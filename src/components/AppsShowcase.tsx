@@ -38,9 +38,9 @@ export default function AppsShowcase() {
 
       <div className="max-w-6xl mx-auto px-6 relative">
         <div className="max-w-2xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-stone-300 text-xs font-semibold uppercase tracking-wider mb-4">
+          <p className="text-amber-500 text-sm font-medium tracking-widest uppercase mb-4">
             Interactive Ecosystem
-          </div>
+          </p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
             Explore Our Digital <span className="text-amber-400">Creations</span>
           </h2>
@@ -110,11 +110,16 @@ export default function AppsShowcase() {
                     </PopButton>
                   ) : (
                     <PopButton
-                      disabled
+                      href="https://instagram.com/laopenbooks"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       variant="secondary"
-                      className="w-full flex items-center justify-center cursor-not-allowed opacity-50"
+                      className="w-full flex items-center justify-center gap-2"
                     >
                       Follow Progress
+                      <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                      </svg>
                     </PopButton>
                   )}
                 </div>

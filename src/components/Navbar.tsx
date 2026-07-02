@@ -29,17 +29,15 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-1">
           <SpotlightNavbar />
           <div className="w-px h-6 bg-white/10 mx-2" />
-          <a
-            href="https://gonzotyper.netlify.app/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/books"
             className="px-4 py-2 rounded-lg text-sm font-semibold text-black bg-amber-500 hover:bg-amber-400 transition-all duration-200 flex items-center gap-1.5 shadow-sm shadow-amber-900/40"
           >
-            Try GonzoTyper
+            Explore Collection
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -72,17 +70,15 @@ function MobileMenuButton() {
             </Link>
           ))}
           <div className="border-t border-white/10 my-1" />
-          <a
-            href="https://gonzotyper.netlify.app/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/books"
             className="flex items-center gap-1.5 px-4 py-2.5 text-sm text-amber-400 hover:bg-white/5 transition-colors"
           >
-            GonzoTyper
+            Explore Collection
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </Link>
         </div>
       </details>
     </div>

@@ -24,7 +24,7 @@ interface FooterProps {
   images?: string[];
   title?: string[];
   subtitle?: string[];
-  paragraphs?: string[][];
+  paragraphs?: string[];
   navEmail?: string;
   footerText?: string;
 }
@@ -55,18 +55,8 @@ const DEFAULT_IMAGES = [
 const DEFAULT_TITLE = ["LAOpenBooks"];
 const DEFAULT_SUBTITLE = ["INDEPENDENT PUBLISHER", "LOS ANGELES"];
 const DEFAULT_PARAGRAPHS = [
-  [
-    "LAOpenBooks is an independent publisher",
-    "specializing in coloring books, non-fiction,",
-    "poetry, and digital applications.",
-  ],
-  [
-    "We prioritize premium physical prints and engaging",
-    "digital interactive web tools. Based in LA, we",
-    "push the boundaries of traditional publishing by",
-    "blending art, code, and storytelling into tactile",
-    "and magical experiences."
-  ]
+  "LAOpenBooks is an independent publisher specializing in coloring books, non-fiction, poetry, and digital applications.",
+  "We prioritize premium physical prints and engaging digital interactive web tools. Based in LA, we push the boundaries of traditional publishing by blending art, code, and storytelling into tactile and magical experiences."
 ];
 
 export function Footer({
@@ -76,7 +66,7 @@ export function Footer({
   subtitle = DEFAULT_SUBTITLE,
   paragraphs = DEFAULT_PARAGRAPHS,
   navEmail = "oppyinmars@gmail.com",
-  footerText = "© 2026 LAOpenBooks. All rights reserved. Made with ♥ in Los Angeles. We navigate in no-nonsense environments pushing the boundaries of publishing and web design.",
+  footerText = "© 2026 LAOpenBooks. All rights reserved. Made with ♥ in Los Angeles. An independent LA publisher bridging the gap between print and digital.",
 }: FooterProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const marqueeStripRef = useRef<HTMLDivElement>(null);
@@ -308,12 +298,8 @@ export function Footer({
           {/* Paragraphs (Right side) */}
           <div className="flex-1 flex flex-col sm:flex-row gap-6 md:gap-12 text-[10px] md:text-xs leading-[1.6] text-stone-300">
             {paragraphs.map((para, pIdx) => (
-              <div key={pIdx} className="flex-1 flex flex-col">
-                {para.map((line, lIdx) => (
-                  <div key={lIdx} className="wake-target whitespace-nowrap">
-                    {line}
-                  </div>
-                ))}
+              <div key={pIdx} className="wake-target flex-1">
+                {para}
               </div>
             ))}
           </div>
@@ -325,9 +311,9 @@ export function Footer({
       <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 z-50 flex flex-col gap-6 md:gap-8 mix-blend-difference pointer-events-none">
         {/* Nav, Email, Social */}
         <div className="flex flex-col md:flex-row items-center justify-between w-full pointer-events-auto text-[10px] md:text-xs font-semibold tracking-wider gap-6 md:gap-4">
-          <a href={`mailto:${navEmail}`} className="hover:text-amber-500 transition-colors uppercase tracking-widest md:flex-1 text-center md:text-left">
-            {navEmail}
-          </a>
+          <Link href="/contact" className="hover:text-amber-500 transition-colors uppercase tracking-widest md:flex-1 text-center md:text-left">
+            Contact Us
+          </Link>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6 uppercase text-stone-400 md:flex-1">
             <Link href="/books" className="hover:text-amber-500 transition-colors">Books</Link>
             <Link href="/apps" className="hover:text-amber-500 transition-colors">Apps</Link>

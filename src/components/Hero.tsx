@@ -17,6 +17,7 @@ export default function Hero() {
             loop 
             muted 
             playsInline 
+            poster="/hero-banner.gif"
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/hero-banner.mp4" type="video/mp4" />
@@ -39,7 +40,7 @@ export default function Hero() {
 
             {/* Heading */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6 drop-shadow-lg">
-              An open book,<br />
+              An open book <br />
               <span className="text-amber-400 drop-shadow-md">is an open mind.</span>
             </h1>
 
@@ -74,40 +75,6 @@ export default function Hero() {
       {/* Animated Spotlight Catalog */}
       <AnimatedCatalog books={allBooks} />
 
-      {/* All Books Grid */}
-      <section className="py-16 px-6 bg-[#0d0d0d]/85 backdrop-blur-md border-t border-white/[0.06]">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-end justify-between mb-10">
-            <div>
-              <p className="text-amber-500 text-sm font-medium tracking-widest uppercase mb-2">Browse</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Full Collection</h2>
-            </div>
-          </div>
-          <BookGrid books={allBooks} />
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 px-6 bg-[#111]/90 backdrop-blur-sm border-t border-white/[0.06]">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-amber-500 text-sm font-medium tracking-widest uppercase mb-4">Get In Touch</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Want to say hello?
-          </h2>
-          <p className="text-lg text-stone-400 mb-10 max-w-md mx-auto leading-relaxed">
-            Whether you have questions, feedback, or just want to connect — we&apos;d love to hear from you.
-          </p>
-          <PopButton
-            href="/contact"
-            className="inline-flex items-center gap-2"
-          >
-            Send a Message
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-          </PopButton>
-        </div>
-      </section>
     </>
   );
 }
