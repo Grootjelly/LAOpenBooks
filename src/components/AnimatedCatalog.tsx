@@ -27,18 +27,19 @@ export default function AnimatedCatalog({ books }: { books: Book[] }) {
         
         {/* Massive Background Text */}
         <motion.div 
-          className="absolute top-[15%] left-0 w-full flex items-center justify-center pointer-events-none z-0"
-          style={{ opacity: useTransform(scrollYProgress, [0.1, 0.4], [0, 1]) }}
+          className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
+          style={{ opacity: useTransform(scrollYProgress, [0.2, 0.5], [0, 0.15]) }}
         >
-          <h2 className="text-[25vw] md:text-[20vw] font-bold text-white whitespace-nowrap select-none leading-[0.8] tracking-tighter"
-              style={{ WebkitTextStroke: '0' }}>
-            Popular Titles
+          <h2 className="text-[15vw] font-black text-transparent whitespace-nowrap select-none"
+              style={{ WebkitTextStroke: '2px rgba(255,255,255,1)' }}>
+            THE CATALOG
           </h2>
         </motion.div>
 
         {/* Regular Header */}
-        <div className="relative z-10 w-full max-w-7xl px-6 flex flex-col items-center text-center mb-8 md:mb-16">
+        <div className="relative z-10 w-full max-w-7xl px-6 flex flex-col items-center text-center mb-12 md:mb-20">
            <p className="text-amber-500 text-sm font-medium tracking-widest uppercase mb-4">The Catalog</p>
+           <h2 className="text-6xl md:text-[8rem] lg:text-[12rem] leading-none font-bold text-white mb-8 tracking-tighter">Popular Titles</h2>
            <Link href="/books" className="text-amber-400 hover:text-amber-300 font-medium text-sm transition-colors uppercase tracking-wider">
               View all titles &rarr;
            </Link>
