@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { getAllBooks } from '@/lib/books';
 import BookGrid from '@/components/BookGrid';
-import BookCarousel from '@/components/BookCarousel';
+import AnimatedCatalog from '@/components/AnimatedCatalog';
 import PopButton from '@/components/PopButton';
 
 export default function Hero() {
@@ -71,27 +71,8 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Spotlight Carousel */}
-      <section className="py-16 px-6 bg-[#0a0a0a]/90 backdrop-blur-sm border-t border-white/[0.06]">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <p className="text-amber-500 text-sm font-medium tracking-widest uppercase mb-2">The Catalog</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Popular Titles</h2>
-            </div>
-            <Link
-              href="/books"
-              className="hidden sm:inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-medium text-sm transition-colors"
-            >
-              View all
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
-          <BookCarousel books={allBooks} />
-        </div>
-      </section>
+      {/* Animated Spotlight Catalog */}
+      <AnimatedCatalog books={allBooks} />
 
       {/* All Books Grid */}
       <section className="py-16 px-6 bg-[#0d0d0d]/85 backdrop-blur-md border-t border-white/[0.06]">
