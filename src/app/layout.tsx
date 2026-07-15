@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LA Open Books | Bookendbook publisher",
-  description: "Discover the Bookendbook catalog — coloring books, poetry, history, and more from an independent LA publisher.",
+  title: "LA Open Books | Bookendbook",
+  description: "Discover the Bookendbook catalog — illustrated word search and activity books for curious minds: history, culture, and the world, one puzzle at a time.",
 };
 
 export default function RootLayout({

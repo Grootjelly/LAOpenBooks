@@ -22,8 +22,17 @@ export interface Book {
   featured: boolean;
 }
 
+const ALLOWED_SLUGS = [
+  'history-search',
+  'blast-from-the-past',
+  'historysearch-inventions',
+  'world-cuisines'
+];
+
 export function getAllBooks(): Book[] {
-  return booksData as Book[];
+  const books = booksData as Book[];
+  // Keep the order matching ALLOWED_SLUGS
+  return ALLOWED_SLUGS.map(slug => books.find(b => b.slug === slug)).filter(Boolean) as Book[];
 }
 
 export function getFeaturedBooks(): Book[] {

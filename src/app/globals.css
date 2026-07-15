@@ -10,6 +10,12 @@
   --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
   --animate-slide-in: slide-in 0.4s ease-out forwards;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-marquee: marquee 45s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-33.333333333333336%); }
+  }
 }
 
 :root {

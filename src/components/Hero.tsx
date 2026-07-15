@@ -1,12 +1,9 @@
 "use client";
 
 import { motion, useReducedMotion } from 'framer-motion';
-import { getAllBooks } from '@/lib/books';
-import AnimatedCatalog from '@/components/AnimatedCatalog';
 import PopButton from '@/components/PopButton';
 
 export default function Hero() {
-  const allBooks = getAllBooks();
   const shouldReduceMotion = useReducedMotion();
   
   const yVal = shouldReduceMotion ? 0 : 20;
@@ -112,9 +109,6 @@ export default function Hero() {
           </div>
         </div>
       </section>
-
-      {/* Animated Spotlight Catalog */}
-      <AnimatedCatalog books={allBooks} />
     </>
   );
 }

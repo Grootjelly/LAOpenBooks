@@ -6,7 +6,7 @@ import SearchBar from '@/components/SearchBar';
 
 export const metadata: Metadata = {
   title: 'All Books | LA Open Books',
-  description: 'Browse the complete Bookendbook catalog — coloring books, history, poetry, and more.',
+  description: 'Browse the complete Bookendbook catalog — illustrated word search and activity books for curious minds.',
 };
 
 export default async function BooksPage({

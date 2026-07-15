@@ -42,21 +42,16 @@ const config = {
 };
 
 const DEFAULT_IMAGES = [
-  "/images/books/coloring-anime.png",
-  "/images/books/fantasy-creatures.png",
-  "/images/books/whispers-in-the-shadows.png",
-  "/images/books/engineering-inventions.png",
-  "/images/books/bombs-and-nukes.png",
-  "/images/books/powerful-women.png",
-  "/images/books/believers.png",
-  "/images/books/history-search.png"
+  "/images/books/history-search.png",
+  "/images/books/blast-from-the-past.png",
+  "/images/books/engineering-inventions.png"
 ];
 
 const DEFAULT_TITLE = ["LAOpenBooks"];
 const DEFAULT_SUBTITLE = ["INDEPENDENT PUBLISHER", "LOS ANGELES"];
 const DEFAULT_PARAGRAPHS = [
   "LAOpenBooks is an independent publisher specializing in illustrated word search and activity books for curious minds: history, culture, and the world, one puzzle at a time.",
-  "We prioritize premium physical prints and engaging digital interactive web tools. Based in LA, we push the boundaries of traditional publishing by blending art, code, and storytelling into tactile and magical experiences."
+  "Based in Los Angeles, we design premium tactile puzzle books that merge rigorous historical research, beautiful custom typography, and engaging storytelling to make learning active and fun."
 ];
 
 export function Footer({
@@ -316,7 +311,6 @@ export function Footer({
           </Link>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6 uppercase text-stone-400 md:flex-1">
             <Link href="/books" className="hover:text-amber-500 transition-colors">Books</Link>
-            <Link href="/apps" className="hover:text-amber-500 transition-colors">Apps</Link>
             <Link href="/about" className="hover:text-amber-500 transition-colors">About</Link>
             <Link href="/contact" className="hover:text-amber-500 transition-colors">Contact</Link>
           </div>
