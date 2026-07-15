@@ -11,13 +11,8 @@ import Link from "next/link";
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
   const [fadeOutIntro, setFadeOutIntro] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const mountTimer = setTimeout(() => {
-      setMounted(true);
-    }, 0);
-
     const fadeTimer = setTimeout(() => {
       setFadeOutIntro(true);
     }, 1800);
@@ -27,15 +22,10 @@ export default function Home() {
     }, 2200);
 
     return () => {
-      clearTimeout(mountTimer);
       clearTimeout(fadeTimer);
       clearTimeout(endTimer);
     };
   }, []);
-
-  if (!mounted) {
-    return <div className="min-h-screen bg-black" />;
-  }
 
   const allBooks = getAllBooks();
 
