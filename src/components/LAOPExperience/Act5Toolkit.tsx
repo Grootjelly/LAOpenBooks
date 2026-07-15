@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { GlowingEffect } from "@/components/GlowingEffect";
 
 interface ToolkitCard {
   id: string;
@@ -106,6 +107,13 @@ export default function Act5Toolkit({ toolkitRef, active }: Act5ToolkitProps) {
                   : "hover:border-white/[0.12] hover:bg-neutral-900/30 hover:shadow-lg"
               }`}
             >
+              <GlowingEffect
+                glow
+                disabled={false}
+                proximity={64}
+                spread={80}
+                borderWidth={1.2}
+              />
               {/* Subtle ambient hover background glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
