@@ -89,9 +89,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling — cinematic experience */
 html {
   scroll-behavior: smooth;
+}
+
+/* Momentum-style scrolling on touch devices */
+body {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
 }
 
 /* Selection color */
