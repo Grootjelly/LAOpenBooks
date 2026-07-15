@@ -16,7 +16,7 @@ export default function ContactPage() {
             Get in <span className="text-amber-500">Touch</span>
           </h1>
           <p className="text-xl text-stone-400 max-w-xl">
-            Have a question, feedback, or just want to say hello? We'd love to hear from you.
+            Have a question, feedback, or just want to say hello? We&apos;d love to hear from you.
           </p>
           <div className="w-16 h-1 bg-amber-500 rounded-full mt-8" />
         </div>

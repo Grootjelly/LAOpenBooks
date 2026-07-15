@@ -1,18 +1,40 @@
+"use client";
+
 import Link from 'next/link';
 import SpotlightNavbar from '@/components/SpotlightNavbar';
+import { useState, useEffect } from 'react';
 
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/books', label: 'Books' },
-  { href: '/apps', label: 'Apps' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 glass-card border-b border-white/[0.06]">
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <header 
+      className={`sticky top-0 z-50 transition-all duration-300 border-b ${
+        isScrolled 
+          ? "py-2 bg-[#0a0a0a]/90 backdrop-blur-md border-white/[0.08] shadow-lg shadow-black/40" 
+          : "py-4 bg-[#0a0a0a]/40 backdrop-blur-sm border-white/[0.04]"
+      }`}
+    >
+      <nav className="max-w-6xl mx-auto px-6 flex items-center justify-between transition-all duration-300">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center shadow-sm shadow-amber-900/40 group-hover:shadow-amber-600/40 transition-shadow">

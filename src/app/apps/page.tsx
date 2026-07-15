@@ -55,16 +55,16 @@ export default function AppsPage() {
                 </h2>
                 <div className="space-y-4 text-stone-300 mb-8 leading-relaxed">
                   <p>
-                    This application is inspired by the unorthodox training regimen of one of journalism's most searing voices: <strong className="text-stone-100">Hunter S. Thompson</strong>.
+                    This application is inspired by the unorthodox training regimen of one of journalism&apos;s most searing voices: <strong className="text-stone-100">Hunter S. Thompson</strong>.
                   </p>
                   <p>
-                    Long before he unleashed "Gonzo" journalism upon the world, Thompson was a student of the craft. While serving in the U.S. Air Force, he undertook a peculiar exercise: he would sit down at his typewriter and re-type, word for word, classics like F. Scott Fitzgerald's <em>The Great Gatsby</em> and Ernest Hemingway's <em>A Farewell to Arms</em>.
+                    Long before he unleashed &quot;Gonzo&quot; journalism upon the world, Thompson was a student of the craft. While serving in the U.S. Air Force, he undertook a peculiar exercise: he would sit down at his typewriter and re-type, word for word, classics like F. Scott Fitzgerald&apos;s <em>The Great Gatsby</em> and Ernest Hemingway&apos;s <em>A Farewell to Arms</em>.
                   </p>
                   <blockquote className="border-l-4 border-amber-500 pl-4 py-1.5 my-4 italic bg-amber-950/20 text-stone-300 rounded-r-lg">
-                    "I just wanted to feel the music," he reportedly said. He wasn't just copying words; he was absorbing the rhythm, the cadence, the very architecture of masterful prose. He wanted to learn how it felt to write a perfect sentence.
+                    &quot;I just wanted to feel the music,&quot; he reportedly said. He wasn&apos;t just copying words; he was absorbing the rhythm, the cadence, the very architecture of masterful prose. He wanted to learn how it felt to write a perfect sentence.
                   </blockquote>
                   <p>
-                    <strong>GonzoTyper</strong> is a digital homage to that very principle. It's a tool designed for writers, thinkers, and anyone curious to connect with a text on a deeper level. By re-typing the works of the greats, you're not just practicing your keyboard skills—you're engaging in a form of literary osmosis, internalizing the flow and structure of language from the inside out.
+                    <strong>GonzoTyper</strong> is a digital homage to that very principle. It&apos;s a tool designed for writers, thinkers, and anyone curious to connect with a text on a deeper level. By re-typing the works of the greats, you&apos;re not just practicing your keyboard skills—you&apos;re engaging in a form of literary osmosis, internalizing the flow and structure of language from the inside out.
                   </p>
                 </div>
               </div>

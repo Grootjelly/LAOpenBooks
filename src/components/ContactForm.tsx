@@ -64,7 +64,7 @@ export default function ContactForm() {
         {status === 'sending' ? 'Sending...' : status === 'sent' ? '✓ Sent!' : 'Send Message'}
       </PopButton>
       {status === 'sent' && (
-        <p className="text-emerald-600 text-sm animate-fade-in">Thank you! We'll get back to you soon.</p>
+        <p className="text-emerald-600 text-sm animate-fade-in">Thank you! We&apos;ll get back to you soon.</p>
       )}
     </form>
   );

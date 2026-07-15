@@ -21,7 +21,6 @@ export function SpotlightNavbar({
     items = [
         { href: '/', label: 'Home' },
         { href: '/books', label: 'Books' },
-        { href: '/apps', label: 'Apps' },
         { href: '/about', label: 'About' },
         { href: '/contact', label: 'Contact' },
     ],
@@ -121,9 +120,9 @@ export function SpotlightNavbar({
                 )}
                 style={{
                     // Gonzo Theme Amber Colors
-                    ['--spotlight-color' as any]: 'rgba(217, 119, 6, 0.12)',
-                    ['--ambience-color' as any]: 'rgba(217, 119, 6, 0.9)',
-                }}
+                    '--spotlight-color': 'rgba(217, 119, 6, 0.12)',
+                    '--ambience-color': 'rgba(217, 119, 6, 0.9)',
+                } as React.CSSProperties}
             >
                 {/* Content */}
                 <ul className="relative flex items-center h-full px-2 gap-0 z-[10]">
@@ -134,7 +133,7 @@ export function SpotlightNavbar({
                                 data-index={idx}
                                 onClick={() => onItemClick?.(item, idx)}
                                 className={cn(
-                                    "px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-full",
+                                    "px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-full relative group/link",
                                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50",
                                     // Active vs Inactive Text
                                     activeIndex === idx
@@ -142,7 +141,8 @@ export function SpotlightNavbar({
                                         : "text-stone-400 hover:text-white"
                                 )}
                             >
-                                {item.label}
+                                <span className="relative z-10">{item.label}</span>
+                                <span className="absolute bottom-2.5 left-4 right-4 h-[1.5px] bg-amber-500 scale-x-0 group-hover/link:scale-x-100 transition-transform duration-300 origin-left z-20" />
                             </Link>
                         </li>
                     ))}

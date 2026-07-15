@@ -55,7 +55,7 @@ const DEFAULT_IMAGES = [
 const DEFAULT_TITLE = ["LAOpenBooks"];
 const DEFAULT_SUBTITLE = ["INDEPENDENT PUBLISHER", "LOS ANGELES"];
 const DEFAULT_PARAGRAPHS = [
-  "LAOpenBooks is an independent publisher specializing in coloring books, non-fiction, poetry, and digital applications.",
+  "LAOpenBooks is an independent publisher specializing in illustrated word search and activity books for curious minds: history, culture, and the world, one puzzle at a time.",
   "We prioritize premium physical prints and engaging digital interactive web tools. Based in LA, we push the boundaries of traditional publishing by blending art, code, and storytelling into tactile and magical experiences."
 ];
 

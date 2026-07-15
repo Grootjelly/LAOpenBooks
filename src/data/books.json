@@ -1,5 +1,50 @@
 [
   {
+    "slug": "history-search",
+    "title": "History Search",
+    "subtitle": "An Interactive Journey Through Time",
+    "author": "Bookendbook",
+    "description": "An interactive journey through the ages. History Search challenges readers to explore, discover, and connect the dots across centuries of human civilization, blending engaging content with a fresh approach to understanding our past.",
+    "coverImage": "/images/books/history-search.png",
+    "genres": ["Word Search", "Activity Book", "History", "Non-Fiction"],
+    "formats": [{"type": "Paperback", "amazonUrl": "#"}],
+    "editions": 1,
+    "pageCount": null,
+    "isbn": null,
+    "publishedDate": null,
+    "featured": true
+  },
+  {
+    "slug": "blast-from-the-past",
+    "title": "Blast from the Past",
+    "subtitle": "An Interactive Word Search & Activity Journey",
+    "author": "Bookendbook",
+    "description": "Travel back in time with word searches, puzzles, and historical trivia that bring the past to life. Perfect for curious minds who love to learn by doing.",
+    "coverImage": "/images/books/blast-from-the-past.png",
+    "genres": ["Word Search", "Activity Book", "History"],
+    "formats": [{"type": "Paperback", "amazonUrl": "#"}],
+    "editions": 1,
+    "pageCount": 120,
+    "isbn": null,
+    "publishedDate": null,
+    "featured": true
+  },
+  {
+    "slug": "historysearch-inventions",
+    "title": "HistorySearch: A Journey Through History's Greatest Inventions",
+    "subtitle": "An Illustrated Word Search & Activity Book",
+    "author": "Bookendbook",
+    "description": "Explore the incredible innovations that shaped our modern world. From the steam engine to the internet, find hidden words and discover fascinating facts about history's greatest breakthroughs.",
+    "coverImage": "/images/books/engineering-inventions.png",
+    "genres": ["Word Search", "Activity Book", "History", "Science", "Engineering"],
+    "formats": [{"type": "Paperback", "amazonUrl": "#"}],
+    "editions": 1,
+    "pageCount": 110,
+    "isbn": null,
+    "publishedDate": null,
+    "featured": true
+  },
+  {
     "slug": "coloring-anime",
     "title": "Coloring Anime",
     "subtitle": "An Anime Coloring Book",
@@ -17,7 +62,7 @@
     "pageCount": null,
     "isbn": null,
     "publishedDate": null,
-    "featured": true
+    "featured": false
   },
   {
     "slug": "fantasy-creatures-coloring-book",
@@ -37,7 +82,7 @@
     "pageCount": null,
     "isbn": null,
     "publishedDate": null,
-    "featured": true
+    "featured": false
   },
   {
     "slug": "whispers-in-the-shadows",
@@ -57,7 +102,7 @@
     "pageCount": null,
     "isbn": null,
     "publishedDate": null,
-    "featured": true
+    "featured": false
   },
   {
     "slug": "engineering-inventions",
@@ -72,7 +117,7 @@
     "pageCount": null,
     "isbn": null,
     "publishedDate": null,
-    "featured": true
+    "featured": false
   },
   {
     "slug": "bombs-and-nukes",
@@ -120,14 +165,14 @@
     "featured": false
   },
   {
-    "slug": "history-search",
-    "title": "History Search",
-    "subtitle": "An Interactive Journey Through Time",
+    "slug": "world-cuisines",
+    "title": "World Cuisines: An Illustrated Word Search Journey",
+    "subtitle": "Cultures & Food Series",
     "author": "Bookendbook",
-    "description": "An interactive journey through the ages. History Search challenges readers to explore, discover, and connect the dots across centuries of human civilization, blending engaging content with a fresh approach to understanding our past.",
-    "coverImage": "/images/books/history-search.png",
-    "genres": ["Non-Fiction", "History", "Education"],
-    "formats": [{"type": "Paperback", "amazonUrl": "#"}],
+    "description": "A delicious puzzle journey through the world's most famous dishes and culinary traditions. Embark on a sensory exploration of food, culture, and history, one word search at a time. Coming soon.",
+    "coverImage": "",
+    "genres": ["Word Search", "Activity Book", "Cultures & Food"],
+    "formats": [],
     "editions": 1,
     "pageCount": null,
     "isbn": null,
