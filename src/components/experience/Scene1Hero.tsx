@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
-import { motion, useReducedMotion, useSpring, useMotionValue } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 const lines = [
   { text: "Every idea begins as a whisper.", delay: 0.6 },
@@ -77,38 +77,7 @@ function BreathLine({
 export default function Scene1Hero() {
   const reduced = useReducedMotion() ?? false;
   const [scrollHint, setScrollHint] = useState(false);
-  const [isInSection, setIsInSection] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  // ── Mouse tracking ────────────────────────────────────────────────
-  const rawX = useMotionValue(
-    typeof window !== "undefined" ? window.innerWidth / 2 : 500
-  );
-  const rawY = useMotionValue(
-    typeof window !== "undefined" ? window.innerHeight / 2 : 400
-  );
-
-  // Large aura: very slow spring — dreamy drift
-  const auraX = useSpring(rawX, { stiffness: 30, damping: 25, mass: 2 });
-  const auraY = useSpring(rawY, { stiffness: 30, damping: 25, mass: 2 });
-
-  // Small dot: fast spring — snappy but smooth
-  const dotX = useSpring(rawX, { stiffness: 280, damping: 28 });
-  const dotY = useSpring(rawY, { stiffness: 280, damping: 28 });
-
-  const handleMouseMove = useCallback(
-    (e: MouseEvent) => {
-      rawX.set(e.clientX);
-      rawY.set(e.clientY);
-    },
-    [rawX, rawY]
-  );
-
-  useEffect(() => {
-    if (reduced) return;
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [handleMouseMove, reduced]);
 
   // ── Scroll hint timer ─────────────────────────────────────────────
   useEffect(() => {
@@ -119,127 +88,27 @@ export default function Scene1Hero() {
     return () => clearTimeout(timer);
   }, [reduced]);
 
-  // ── Detect if mouse is inside this section ────────────────────────
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const onEnter = () => setIsInSection(true);
-    const onLeave = () => setIsInSection(false);
-    el.addEventListener("mouseenter", onEnter);
-    el.addEventListener("mouseleave", onLeave);
-    return () => {
-      el.removeEventListener("mouseenter", onEnter);
-      el.removeEventListener("mouseleave", onLeave);
-    };
-  }, []);
-
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen w-full flex flex-col items-center justify-center bg-[#060606] overflow-hidden px-6"
-      style={{ cursor: isInSection && !reduced ? "none" : "auto" }}
     >
-      {/* ── Large pulsing amber aura ──────────────────────────────── */}
-      {!reduced ? (
-        <motion.div
-          className="absolute pointer-events-none"
-          style={{
-            x: auraX,
-            y: auraY,
-            translateX: "-50%",
-            translateY: "-50%",
-            top: 0,
-            left: 0,
-          }}
-        >
-          {/* Outer slow pulse ring */}
-          <motion.div
-            className="rounded-full"
-            animate={{
-              width: ["340px", "400px", "340px"],
-              height: ["340px", "400px", "340px"],
-              opacity: [0.18, 0.28, 0.18],
-            }}
-            transition={{
-              duration: 4,
-              ease: "easeInOut",
-              repeat: Infinity,
-              repeatType: "mirror",
-            }}
-            style={{
-              background:
-                "radial-gradient(circle, rgba(251,146,60,0.55) 0%, rgba(245,158,11,0.22) 35%, transparent 70%)",
-              filter: "blur(60px)",
-              position: "absolute",
-              transform: "translate(-50%, -50%)",
-            }}
-          />
-          {/* Inner bright core */}
-          <motion.div
-            className="rounded-full"
-            animate={{
-              width: ["120px", "160px", "120px"],
-              height: ["120px", "160px", "120px"],
-              opacity: [0.65, 0.9, 0.65],
-            }}
-            transition={{
-              duration: 3,
-              ease: "easeInOut",
-              repeat: Infinity,
-              repeatType: "mirror",
-              delay: 0.5,
-            }}
-            style={{
-              background:
-                "radial-gradient(circle, rgba(251,146,60,1) 0%, rgba(245,158,11,0.6) 50%, transparent 80%)",
-              filter: "blur(28px)",
-              position: "absolute",
-              transform: "translate(-50%, -50%)",
-            }}
-          />
-        </motion.div>
-      ) : (
-        /* Reduced motion — static centered glow */
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 500px 400px at 50% 50%, rgba(245,158,11,0.08) 0%, transparent 70%)",
-          }}
-        />
-      )}
+      {/* Hero Video background */}
+      <video 
+        autoPlay 
+        loop 
+        muted 
+        playsInline 
+        poster="/hero-banner.gif"
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/hero-banner.mp4" type="video/mp4" />
+        {/* Fallback to GIF if the user uploads a GIF instead */}
+        <img src="/hero-banner.gif" alt="Hero background" className="absolute inset-0 w-full h-full object-cover" />
+      </video>
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/45 z-0" />
 
-      {/* ── Small amber dot cursor ────────────────────────────────── */}
-      {!reduced && (
-        <motion.div
-          className="fixed pointer-events-none z-[200]"
-          style={{
-            x: dotX,
-            y: dotY,
-            translateX: "-50%",
-            translateY: "-50%",
-          }}
-        >
-          <motion.div
-            className="rounded-full border border-amber-400/80"
-            animate={{
-              width: ["10px", "14px", "10px"],
-              height: ["10px", "14px", "10px"],
-            }}
-            transition={{
-              duration: 2.5,
-              ease: "easeInOut",
-              repeat: Infinity,
-              repeatType: "mirror",
-            }}
-            style={{
-              background:
-                "radial-gradient(circle, rgba(251,146,60,0.9) 0%, rgba(245,158,11,0.5) 60%, transparent 100%)",
-              boxShadow: "0 0 8px rgba(251,146,60,0.6), 0 0 20px rgba(245,158,11,0.2)",
-            }}
-          />
-        </motion.div>
-      )}
 
       {/* ── Text stack ───────────────────────────────────────────── */}
       <div className="relative z-10 flex flex-col items-center gap-10 max-w-3xl w-full">
