@@ -3,13 +3,40 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Book } from '@/lib/books';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
+
+const GENRE_EMOJI: Record<string, string> = {
+  'History': '🏛️',
+  'Science': '🔬',
+  'Engineering': '⚙️',
+  'Military': '🎖️',
+  'Cultures & Food': '🍳',
+  'Non-Fiction': '📚',
+  'Word Search': '🔍',
+  'Activity Book': '✏️',
+};
+
+// The most specific genre makes the best placeholder label
+export function placeholderGenre(genres: string[]): string {
+  return (
+    genres.find(g => g !== 'Word Search' && g !== 'Activity Book') ||
+    genres[0] ||
+    'Bookendbook'
+  );
+}
+
+export function genreEmoji(genre: string): string {
+  return GENRE_EMOJI[genre] || '📖';
+}
 
 export default function BookCard({ book, index = 0 }: { book: Book; index?: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const coverRef = useRef<HTMLDivElement>(null);
+  const [imgFailed, setImgFailed] = useState(false);
   const router = useRouter();
+  const hasCover = Boolean(book.coverImage) && !imgFailed;
+  const badgeGenre = placeholderGenre(book.genres);
 
   // Intersection Observer → trigger reveal-up animation
   useEffect(() => {
@@ -81,7 +108,7 @@ export default function BookCard({ book, index = 0 }: { book: Book; index?: numb
             className="book-cover-3d relative aspect-[5/7] rounded-xl overflow-hidden bg-neutral-900 border border-white/[0.08] shadow-lg transition-transform duration-300"
             style={{ viewTransitionName: `book-cover-${book.slug}` } as React.CSSProperties}
           >
-            {book.coverImage ? (
+            {hasCover ? (
               <Image
                 src={book.coverImage}
                 alt={`Book cover of ${book.title}`}
@@ -89,16 +116,17 @@ export default function BookCard({ book, index = 0 }: { book: Book; index?: numb
                 className="object-cover"
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 priority={book.featured}
+                onError={() => setImgFailed(true)}
               />
             ) : (
-              /* Coming Soon Placeholder layout */
+              /* Placeholder cover — used when no image exists or it fails to load */
               <div className="absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-amber-950/20 via-neutral-950 to-amber-950/10 select-none">
                 <div className="absolute inset-2 border border-dashed border-white/5 rounded-lg pointer-events-none" />
-                
+
                 <div className="relative z-10 flex flex-col items-center pt-6">
-                  <span className="text-[9px] tracking-widest font-sans uppercase font-bold text-amber-500/80 mb-2">Cultures & Food</span>
+                  <span className="text-[9px] tracking-widest font-sans uppercase font-bold text-amber-500/80 mb-2">{badgeGenre}</span>
                   <div className="w-9 h-9 rounded-full bg-amber-500/5 flex items-center justify-center border border-amber-500/10 mb-4 text-amber-400">
-                    🍳
+                    {genreEmoji(badgeGenre)}
                   </div>
                 </div>
 
@@ -113,7 +141,7 @@ export default function BookCard({ book, index = 0 }: { book: Book; index?: numb
 
                 <div className="relative z-10 pb-4 text-center">
                   <span className="inline-block px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[9px] font-bold tracking-wider uppercase">
-                    Coming Soon
+                    {book.formats.length > 0 ? book.formats[0].type : 'Coming Soon'}
                   </span>
                 </div>
               </div>
@@ -133,7 +161,7 @@ export default function BookCard({ book, index = 0 }: { book: Book; index?: numb
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                   </svg>
-                  {book.coverImage ? "View Details" : "Read Preview"}
+                  {hasCover ? "View Details" : "Read Preview"}
                 </span>
               </div>
             </div>

@@ -138,6 +138,12 @@ body {
   background-clip: text;
 }
 
+/* Dotted grid texture for page heroes */
+.hero-grid-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
 /* Glass card effect — dark */
 .glass-card {
   background: rgba(10, 10, 10, 0.85);

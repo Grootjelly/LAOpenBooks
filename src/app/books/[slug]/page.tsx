@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { getAllBooks, getBookBySlug } from '@/lib/books';
 import BookDetailCover from '@/components/BookDetailCover';
 import ScrollReveal from '@/components/ScrollReveal';
+import Parallax from '@/components/Parallax';
 
 export async function generateStaticParams() {
   return getAllBooks().map(book => ({ slug: book.slug }));
@@ -49,14 +50,16 @@ export default async function BookDetailPage({
           </nav>
 
           <div className="grid md:grid-cols-[320px_1fr] gap-12">
-            {/* Interactive Cover Column */}
-            <div>
+            {/* Interactive Cover Column — stays pinned while details scroll */}
+            <div className="md:sticky md:top-28 md:self-start">
               <BookDetailCover
                 coverImage={book.coverImage}
                 title={book.title}
                 subtitle={book.subtitle}
                 featured={book.featured}
                 slug={book.slug}
+                genres={book.genres}
+                formatLabel={book.formats[0]?.type}
               />
             </div>
 
@@ -164,37 +167,43 @@ export default async function BookDetailPage({
           <ScrollReveal className="max-w-6xl mx-auto">
             <h2 className="text-2xl font-serif font-bold text-white mb-8">Inside the Book</h2>
             <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-4 md:gap-6">
-              {/* Main large image */}
-              <div className="relative aspect-square md:aspect-auto md:h-[600px] rounded-xl overflow-hidden bg-stone-900 border border-white/[0.06] shadow-xl">
-                <Image
-                  src={book.gallery[0]}
-                  alt={`${book.title} interior preview 1`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 60vw"
-                />
-              </div>
-              
+              {/* Main large image — drifts slower than the small ones */}
+              <Parallax speed={0.12}>
+                <div className="relative aspect-square md:aspect-auto md:h-[600px] rounded-xl overflow-hidden bg-stone-900 border border-white/[0.06] shadow-xl">
+                  <Image
+                    src={book.gallery[0]}
+                    alt={`${book.title} interior preview 1`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 60vw"
+                  />
+                </div>
+              </Parallax>
+
               {/* Stacked smaller images */}
               <div className="grid grid-rows-2 gap-4 md:gap-6 md:h-[600px]">
-                <div className="relative aspect-video md:aspect-auto rounded-xl overflow-hidden bg-stone-900 border border-white/[0.06] shadow-xl">
-                  <Image
-                    src={book.gallery[1]}
-                    alt={`${book.title} interior preview 2`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 40vw"
-                  />
-                </div>
-                <div className="relative aspect-video md:aspect-auto rounded-xl overflow-hidden bg-stone-900 border border-white/[0.06] shadow-xl">
-                  <Image
-                    src={book.gallery[2]}
-                    alt={`${book.title} interior preview 3`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 40vw"
-                  />
-                </div>
+                <Parallax speed={0.3}>
+                  <div className="relative aspect-video md:aspect-auto md:h-[288px] rounded-xl overflow-hidden bg-stone-900 border border-white/[0.06] shadow-xl">
+                    <Image
+                      src={book.gallery[1]}
+                      alt={`${book.title} interior preview 2`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 40vw"
+                    />
+                  </div>
+                </Parallax>
+                <Parallax speed={0.45}>
+                  <div className="relative aspect-video md:aspect-auto md:h-[288px] rounded-xl overflow-hidden bg-stone-900 border border-white/[0.06] shadow-xl">
+                    <Image
+                      src={book.gallery[2]}
+                      alt={`${book.title} interior preview 3`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 40vw"
+                    />
+                  </div>
+                </Parallax>
               </div>
             </div>
           </ScrollReveal>
