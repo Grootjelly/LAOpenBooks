@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import { placeholderGenre, genreEmoji } from "./BookCard";
 
 interface BookDetailCoverProps {
   coverImage: string;
@@ -9,17 +10,24 @@ interface BookDetailCoverProps {
   subtitle?: string | null;
   featured?: boolean;
   slug: string;
+  genres?: string[];
+  formatLabel?: string;
 }
 
-export default function BookDetailCover({ 
-  coverImage, 
-  title, 
-  subtitle, 
+export default function BookDetailCover({
+  coverImage,
+  title,
+  subtitle,
   featured = false,
-  slug
+  slug,
+  genres = [],
+  formatLabel,
 }: BookDetailCoverProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const coverRef = useRef<HTMLDivElement>(null);
+  const [imgFailed, setImgFailed] = useState(false);
+  const hasCover = Boolean(coverImage) && !imgFailed;
+  const badgeGenre = placeholderGenre(genres);
 
   useEffect(() => {
     const wrap = containerRef.current;
@@ -46,7 +54,7 @@ export default function BookDetailCover({
   }, []);
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className="relative aspect-[5/7] rounded-2xl shadow-2xl bg-neutral-900 border border-white/[0.08]"
       style={{ perspective: "1000px" }}
@@ -54,12 +62,12 @@ export default function BookDetailCover({
       <div
         ref={coverRef}
         className="w-full h-full relative rounded-2xl overflow-hidden shadow-xl transition-transform duration-200 ease-out"
-        style={{ 
+        style={{
           transformStyle: "preserve-3d",
-          viewTransitionName: `book-cover-${slug}` 
+          viewTransitionName: `book-cover-${slug}`
         } as React.CSSProperties}
       >
-        {coverImage ? (
+        {hasCover ? (
           <Image
             src={coverImage}
             alt={`Book cover of ${title}`}
@@ -67,16 +75,17 @@ export default function BookDetailCover({
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 320px"
             priority={featured}
+            onError={() => setImgFailed(true)}
           />
         ) : (
           /* Placeholder cover matching BookCard styling */
           <div className="absolute inset-0 flex flex-col justify-between p-8 bg-gradient-to-br from-amber-950/35 via-neutral-950 to-amber-950/15 select-none">
             <div className="absolute inset-2 border border-dashed border-white/5 rounded-xl pointer-events-none" />
-            
+
             <div className="relative z-10 flex flex-col items-center pt-8">
-              <span className="text-[10px] tracking-widest font-sans uppercase font-bold text-amber-500/80 mb-2">Cultures & Food</span>
+              <span className="text-[10px] tracking-widest font-sans uppercase font-bold text-amber-500/80 mb-2">{badgeGenre}</span>
               <div className="w-12 h-12 rounded-full bg-amber-500/5 flex items-center justify-center border border-amber-500/10 mb-4 text-amber-400">
-                🍳
+                {genreEmoji(badgeGenre)}
               </div>
             </div>
 
@@ -91,12 +100,12 @@ export default function BookDetailCover({
 
             <div className="relative z-10 pb-6 text-center">
               <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[10px] font-bold tracking-wider uppercase">
-                Coming Soon
+                {formatLabel || 'Coming Soon'}
               </span>
             </div>
           </div>
         )}
-        
+
         {/* Spine shadow / edge lines */}
         <div className="absolute inset-y-0 left-0 w-4 bg-gradient-to-r from-black/35 via-black/10 to-transparent pointer-events-none" />
         {/* Gloss overlay */}

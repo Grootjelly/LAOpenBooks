@@ -1,8 +1,11 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
-import { getAllBooks, getAllGenres, searchBooks } from '@/lib/books';
+import { getAllBooks, getAllGenres, getFeaturedBooks, searchBooks } from '@/lib/books';
 import BookGrid from '@/components/BookGrid';
 import SearchBar from '@/components/SearchBar';
+import PageHero from '@/components/PageHero';
+import ScrollMarquee from '@/components/ScrollMarquee';
+import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
   title: 'All Books | LA Open Books',
@@ -27,35 +30,39 @@ export default async function BooksPage({
     books = books.filter(book => book.genres.includes(genre));
   }
 
+  const heroCovers = getFeaturedBooks()
+    .filter(book => book.coverImage)
+    .slice(0, 3)
+    .map(book => ({ src: book.coverImage, alt: `Book cover of ${book.title}` }));
+
   return (
     <main className="flex-1">
-      {/* Hero */}
-      <section className="bg-gradient-to-b from-[#0f0f0f]/80 to-[#0a0a0a]/80 backdrop-blur-sm py-20 px-6 border-b border-white/[0.06]">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Our <span className="text-amber-500">Books</span>
-          </h1>
-          <p className="text-xl text-stone-400 max-w-xl">
-            Explore the full Bookendbook catalog.
-          </p>
-          <div className="w-16 h-1 bg-amber-500 rounded-full mt-8" />
-        </div>
-      </section>
+      <PageHero
+        eyebrow="The Bookendbook Catalog"
+        title="Stories you can"
+        accent="solve."
+        subtitle="Illustrated word searches and activity books for curious minds — history, culture, and the world, one puzzle at a time."
+        covers={heroCovers}
+      />
+
+      <ScrollMarquee items={genres} />
 
       {/* Catalog */}
-      <section className="py-12 px-6">
+      <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <Suspense fallback={<div className="h-14" />}>
-            <SearchBar genres={genres} />
-          </Suspense>
+          <ScrollReveal>
+            <Suspense fallback={<div className="h-14" />}>
+              <SearchBar genres={genres} />
+            </Suspense>
+          </ScrollReveal>
 
           {books.length > 0 ? (
             <BookGrid books={books} />
           ) : (
-            <div className="text-center py-20">
+            <ScrollReveal className="text-center py-20">
               <p className="text-stone-500 text-lg">No books found matching your search.</p>
               <p className="text-stone-400 text-sm mt-2">Try a different search term or clear filters.</p>
-            </div>
+            </ScrollReveal>
           )}
         </div>
       </section>

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const EXPERIENCE_ROUTES = ["/"];
 
@@ -85,6 +86,7 @@ export default function ConditionalShell({
 
   return (
     <>
+      <ScrollProgress />
       <Navbar />
       <main className="flex-grow">{children}</main>
       <Footer />

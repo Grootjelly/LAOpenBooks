@@ -43,7 +43,7 @@ const config = {
 
 const DEFAULT_IMAGES = [
   "/images/books/history-search.png",
-  "/images/books/blast-from-the-past.png",
+  "/images/books/powerful-women.png",
   "/images/books/engineering-inventions.png"
 ];
 
