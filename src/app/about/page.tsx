@@ -3,7 +3,7 @@ import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
   title: 'About | LA Open Books',
-  description: 'Learn about Bookendbook — an independent publisher of puzzle-driven nonfiction and illustrated word search activity books.',
+  description: 'LA Open Books is an independent publishing studio for people who have something in their head that deserves to exist outside of it.',
 };
 
 export default function AboutPage() {
@@ -13,8 +13,11 @@ export default function AboutPage() {
       <section className="bg-gradient-to-b from-[#0f0f0f]/80 to-[#0a0a0a]/80 backdrop-blur-sm py-20 px-6 border-b border-white/[0.06]">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
+            <p className="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase mb-3">
+              The Publishing Studio
+            </p>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
-              About <span className="text-amber-500">Bookendbook</span>
+              About <span className="text-amber-500">LA Open Books</span>
             </h1>
             <div className="w-16 h-1 bg-amber-500 rounded-full mb-8" />
           </ScrollReveal>
@@ -27,19 +30,19 @@ export default function AboutPage() {
           <div className="prose prose-invert prose-lg max-w-none space-y-6">
             <ScrollReveal delay={0.1}>
               <p className="text-xl text-stone-200 leading-relaxed font-serif">
-                Bookendbook is an independent publisher based in Los Angeles, dedicated to crafting puzzle-driven nonfiction for readers who like to learn by doing. We specialize in illustrated word searches and interactive activity books that transform history, culture, and science into engaging, tactile challenges.
+                LA Open Books is an independent publishing studio for people who have something in their head that deserves to exist outside of it.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
               <p className="text-lg text-stone-400 leading-relaxed">
-                Every title in our catalog is created with meticulous care, merging rigorous research with high-fidelity visual design and custom layout structures. Rather than just offering dry text, we design puzzles that invite you to explore the world’s greatest breakthroughs, cultural milestones, and historical epochs one search at a time.
+                Ideas are intangible until we give them form. We believe the identity is the book—a permanent, physical object crafted to outlive the mind that conceived it. From developmental writing support and editorial direction to bespoke typography, archival print production, and catalog placement, we provide the quiet precision craft that turns thought into artifact.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
               <p className="text-lg text-stone-400 leading-relaxed">
-                We believe that learning is most powerful when it is active, tactile, and fun. By blending puzzle design with rich educational storytelling, we create experiences that spark curiosity and keep minds active at any age.
+                Through our imprint <strong className="text-stone-200">Bookendbook</strong>, we also craft illustrated word search and puzzle-driven nonfiction for readers who love to explore culture, history, and science through tactile challenges.
               </p>
             </ScrollReveal>
           </div>
@@ -47,16 +50,16 @@ export default function AboutPage() {
           {/* Stats Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 py-12 border-t border-white/[0.06]">
             <ScrollReveal delay={0.4} className="text-center">
-              <p className="text-3xl md:text-4.5xl font-bold text-amber-500 font-serif">8+</p>
-              <p className="text-sm text-stone-400 mt-1 uppercase tracking-wider text-[10px]">Publications</p>
+              <p className="text-3xl md:text-4.5xl font-bold text-amber-500 font-serif">100%</p>
+              <p className="text-sm text-stone-400 mt-1 uppercase tracking-wider text-[10px]">Independent Craft</p>
             </ScrollReveal>
             <ScrollReveal delay={0.5} className="text-center">
-              <p className="text-3xl md:text-4.5xl font-bold text-amber-500 font-serif">1000+</p>
-              <p className="text-sm text-stone-400 mt-1 uppercase tracking-wider text-[10px]">Puzzles Designed</p>
+              <p className="text-3xl md:text-4.5xl font-bold text-amber-500 font-serif">Archival</p>
+              <p className="text-sm text-stone-400 mt-1 uppercase tracking-wider text-[10px]">Print & Materials</p>
             </ScrollReveal>
             <ScrollReveal delay={0.6} className="text-center col-span-2 md:col-span-1">
-              <p className="text-3xl md:text-4.5xl font-bold text-amber-500 font-serif">LA</p>
-              <p className="text-sm text-stone-400 mt-1 uppercase tracking-wider text-[10px]">Based Studio</p>
+              <p className="text-3xl md:text-4.5xl font-bold text-amber-500 font-serif">Los Angeles</p>
+              <p className="text-sm text-stone-400 mt-1 uppercase tracking-wider text-[10px]">Studio Location</p>
             </ScrollReveal>
           </div>
         </div>

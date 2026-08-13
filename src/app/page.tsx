@@ -1,17 +1,17 @@
-import Scene1Hero from "@/components/experience/Scene1Hero";
-import Scene2Notebook from "@/components/experience/Scene2Notebook";
-import Scene3Transform from "@/components/experience/Scene3Transform";
-import Scene4Statement from "@/components/experience/Scene4Statement";
-import Scene6Ending from "@/components/experience/Scene6Ending";
+import Scene1Dictionary from "@/components/experience/Scene1Dictionary";
+import Scene2Dissolve from "@/components/experience/Scene2Dissolve";
+import Scene3Metamorphosis from "@/components/experience/Scene3Metamorphosis";
+import Scene4Machinery from "@/components/experience/Scene4Machinery";
+import Scene5Resolution from "@/components/experience/Scene5Resolution";
 
 export default function Home() {
   return (
-    <div className="bg-[#060606]">
-      <Scene1Hero />
-      <Scene2Notebook />
-      <Scene3Transform />
-      <Scene4Statement />
-      <Scene6Ending />
+    <div className="bg-[#060606] selection:bg-amber-500 selection:text-black">
+      <Scene1Dictionary />
+      <Scene2Dissolve />
+      <Scene3Metamorphosis />
+      <Scene4Machinery />
+      <Scene5Resolution />
     </div>
   );
 }

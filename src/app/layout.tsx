@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 import "./globals.css";
 import ConditionalShell from "@/components/ConditionalShell";
 
@@ -13,10 +13,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
-  title: "LA Open Books | Bookendbook",
+  title: "LA Open Books | Independent Publishing Studio",
   description:
-    "Discover the Bookendbook catalog — illustrated word search and activity books for curious minds: history, culture, and the world, one puzzle at a time.",
+    "LA Open Books is an independent publishing studio for people who have something in their head that deserves to exist outside of it. We turn ideas into books.",
 };
 
 export default function RootLayout({
@@ -27,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#060606] text-[#f5f0eb]">
         <ConditionalShell>{children}</ConditionalShell>
